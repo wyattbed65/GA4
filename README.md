@@ -72,32 +72,42 @@ trim_galore --fastqc
 
 ### 5: Write the `trimgalore.sh` script
 
-<!-- No need to paste the script: we'll look at scripts/trimgalore.sh directly. -->
 
 ### 6: Run the script for sample `S63`, and check the output files
 
 Code to run the script:
 
 ```bash
-# Your command:
+bash scripts/trimgalore.sh ../garrigos/fastq/S63_R1.fastq.gz ../garrigos/fastq
+/S63_R2.fastq.gz results/trimgalore
 ```
 
-<!-- You don't need to paste the TrimGalore logging output -->
+
 
 Code to list the output files:
 
 ```bash
-# Your command:
+ls results/trimgalore
 ```
 
 The output of the command was:
 
 ```
+S63_R1.fastq.gz_trimming_report.json  S63_R1_val_1.fq.gz                    S63_R2_val_2_fastqc.zip
+S63_R1.fastq.gz_trimming_report.txt   S63_R2.fastq.gz_trimming_report.json  S63_R2_val_2.fq.gz
+S63_R1_val_1_fastqc.html              S63_R2.fastq.gz_trimming_report.txt
+S63_R1_val_1_fastqc.zip               S63_R2_val_2_fastqc.html
 ```
 
 *Answer*: What each type of output file contains:
 
-<!-- If your script failed at first: describe the problem and your fix here. -->
+The trimming report contains a report of the base reads that did not meet the criteria for quality or length and got trimmed in the command. It also provides reasoning for why the base pair reads were cut.
+
+The val_1_fastqc files contain the data. The HTML files contains wording that is likely describing a figure, ebcuase it discusses colors and borders. The gz and zip files are compressed versions of the raw data.
+
+I originally failed the script, as I entered a spelling error on the input directory, putting fastqc instead of only fastq. However, I altered it so the script would work.
+
+
 
 ### 7: Trimming results
 
