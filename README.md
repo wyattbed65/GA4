@@ -60,7 +60,15 @@ trim_galore --fastqc
 
 *Answer*: A) The default base quality score threshold:
 
+20 (--quality)
+
 *Answer*: B) The default read length threshold:
+
+18 for smallRNA adapter (--small_rna)
+
+20 after trimming (--length)
+
+35 for unpaired reads when mate is too short (paired end only --retain_unpaired)
 
 ### 5: Write the `trimgalore.sh` script
 
