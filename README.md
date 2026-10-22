@@ -33,21 +33,28 @@ GA4 README template.
 
 ### 3: A TrimGalore container, its help info, and three options
 
-*Answer*: The container link (URI) is:
+*Answer*: The container link (URI) is: oras://community.wave.seqera.io/library/trim-galore:2.3.0--a56e49e832976df4
 
 Code to run `trim_galore --help` with the container:
 
 ```bash
-# Your command:
+apptainer exec oras://community.wave.seqera.io/library/trim-galore:2.3.0--a56e49e832976df4 trim_galore --help
 ```
 
 <!-- You don't need to paste the TrimGalore help output -->
 
 *Answer*: The option to indicate that the reads are paired-end:
 
+trim_galore --paired
+
 *Answer*: The option to set the output dir:
 
+trim_galore --output_dir
+
 *Answer*: The option to run FastQC on the trimmed FASTQ files:
+
+trim_galore --fastqc
+
 
 ### 4: Default thresholds
 
