@@ -134,9 +134,15 @@ In both cases, there were a lot more bases removed for quality trimming than for
 
 *Answer*: Did TrimGalore do poly-G trimming, and did you have to tell it to?
 
+TrimGalore did do poly-G trimming, it automatically did this feature for me.
+
 *Answer*: What TrimGalore concludes about the sequencing technology:
 
+Based on the trim report, the poly-G trimming is enabled when a 2-color sequencer artifact is used and it is required to trim artificial poly G tails from the 3' end placed by the 2 color sequencer. Basically, this data comes from 2-color sequencing technology. 
+
 *Answer*: Was more poly-G trimming done in R1 or R2? (Optional: any idea why?)
+
+More poly-G trimming was done for R2. (Unfortunately I do not know why, but I am curious to know)
 
 ### 9: Compare the FastQC reports before and after trimming
 
