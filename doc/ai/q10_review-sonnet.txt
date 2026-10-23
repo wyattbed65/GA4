@@ -1,0 +1,45 @@
+
+❯ <ide_opened_file>The user opened the file
+  /fs/ess/PAS3493/people/wyattbed65/GA4/scripts/trimgalore.sh in the IDE. This
+  may or may not be related to the current task.</ide_opened_file>
+
+❯ Would you mind listing some improvements that I could make to the script and
+  provide reasoning for each. Do not change the script yet.
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  Loaded GA4/CLAUDE.md
+
+● Comparing against your project's conventions in CLAUDE.md, here's what I'd
+  improve:
+
+  1. Missing usage/purpose comment block — convention requires a comment with
+     the script's purpose and a # Usage: line. Currently just has #Trim Galore
+     Container.
+  2. Variables not lowercase/descriptive — R1, R2, Outdir should be lowercase
+     (e.g. r1, r2, outdir) per convention; uppercase reserved for constants like
+     CONTAINER.
+  3. Re-using positional params instead of named vars — line 17 uses "$3" and
+     line 21 uses "$1" "$2" "$3" again instead of "$r1" "$r2" "$outdir".
+     Reasoning: once you've assigned descriptive variables, using the raw
+     $1/$2/$3 elsewhere defeats the purpose and makes the script harder to
+     read/maintain.
+  4. No start-of-run reporting — convention wants the script name, date, and
+     inputs echoed at start. Currently only "Starting Trim Galore" with no
+     inputs/date.
+  5. No end-of-run reporting with version — convention wants the program version
+     and date reported at the end, not just "Finish Trim Galore."
+  6. echo Starting Trim Galore / echo Finish Trim Galore unquoted — works here
+     since no special chars, but quoting (echo "Starting Trim Galore") is
+     safer/more consistent style.
+  7. No check that FASTQ inputs exist before running — if $1/$2 are wrong paths,
+     apptainer will fail with a less clear error. Could add a quick existence
+     check, though set -euo pipefail plus apptainer's own error may be
+     sufficient — minor, optional.
+  8. Container digest pinned but no comment on why — minor: could note that
+     pinning avoids silent version drift, for future readers unfamiliar with
+     Seqera Containers' oras:// scheme.
+  9. FastQC output mixed into trim_galore output dir — --fastqc runs FastQC as
+     part of trimming and dumps reports into the same outdir. Worth considering
+     whether this should go to a separate results/fastqc-style subdir to keep
+     with the "separate subdir for each step" convention, or whether that's
+     intentional since it's QC-on-trimmed-reads rather than raw QC.

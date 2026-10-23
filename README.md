@@ -170,19 +170,59 @@ In the raw data adapter table, there is no reference of poly G. However, the tri
 
 ### 10: Sonnet reviews your script
 
-*Answer*: Your prompt:
+*Answer*: Your prompt: Would you mind listing some improvements that I could make to the script and provide reasoning for each. Do not change the script yet.
 
 *Answer*: Claude's suggestions, and for each, whether you agree, disagree,
 or don't understand it, and why:
 
+Comparing against your project's conventions in CLAUDE.md, here's what I'd improve:
+
+Missing usage/purpose comment block — convention requires a comment with the script's purpose and a # Usage: line. Currently just has #Trim Galore Container.
+
+I agree, I did not include the scripts purpose in my script.
+
+Variables not lowercase/descriptive — R1, R2, Outdir should be lowercase (e.g. r1, r2, outdir) per convention; uppercase reserved for constants like CONTAINER.
+
+I agree with this, as it was showing my trim galore script was having an error due to the uppercase lettering
+
+Re-using positional params instead of named vars — line 17 uses "$3" and line 21 uses "$1" "$2" "$3" again instead of "$r1" "$r2" "$outdir". Reasoning: once you've assigned descriptive variables, using the raw $1/$2/$3 elsewhere defeats the purpose and makes the script harder to read/maintain.
+
+I don't fully agree with this one, as I was using $3 to make the directory
+
+No start-of-run reporting — convention wants the script name, date, and inputs echoed at start. Currently only "Starting Trim Galore" with no inputs/date.
+
+I did not do this, it would look more professional to fix it like this, so I agree
+
+No end-of-run reporting with version — convention wants the program version and date reported at the end, not just "Finish Trim Galore."
+
+Same as the last point, it would look more professional
+
+echo Starting Trim Galore / echo Finish Trim Galore unquoted — works here since no special chars, but quoting (echo "Starting Trim Galore") is safer/more consistent style.
+
+I agree with this statement as well, I did not place "Finish Trim Galore" in quotations.
+
+No check that FASTQ inputs exist before running — if $1/$2 are wrong paths, apptainer will fail with a less clear error. Could add a quick existence check, though set -euo pipefail plus apptainer's own error may be sufficient — minor, optional.
+
+I don't think this is fully necessary if I know the files already exist.
+
+Container digest pinned but no comment on why — minor: could note that pinning avoids silent version drift, for future readers unfamiliar with Seqera Containers' oras:// scheme.
+
+I don't know if this is completely necessary, maybe I should be a little more descriptive
+
+FastQC output mixed into trim_galore output dir — --fastqc runs FastQC as part of trimming and dumps reports into the same outdir. Worth considering whether this should go to a separate results/fastqc-style subdir to keep with the "separate subdir for each step" convention, or whether that's intentional since it's QC-on-trimmed-reads rather than raw QC.
+
+No this goes against the question, it was intentional
+
 *Answer*: Was anything wrong, or in conflict with the course's practices?
 Did Claude refer to your `CLAUDE.md` conventions?
 
-*Answer*: The estimated cost of this conversation (from `/usage`):
+No it referred to the CLAUDE.md, however the last point was suggesting a prompt that would change what the original prompt question was asking, so it would technically be wrong. 
+
+*Answer*: The estimated cost of this conversation (from `/usage`): $0.1426
 
 ### 11: Opus reviews your script
 
-*Answer*: The estimated cost of this conversation (from `/usage`):
+*Answer*: The estimated cost of this conversation (from `/usage`): 
 
 *Answer*: Which suggestions did only one of the two models make?
 
