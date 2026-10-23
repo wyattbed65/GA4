@@ -222,18 +222,33 @@ No it referred to the CLAUDE.md, however the last point was suggesting a prompt 
 
 ### 11: Opus reviews your script
 
-*Answer*: The estimated cost of this conversation (from `/usage`): 
+*Answer*: The estimated cost of this conversation (from `/usage`): $0.2810
 
 *Answer*: Which suggestions did only one of the two models make?
 
+It gave me a optional fix to check for the number of arguments, if i run a script with fewer than 3 arguments it will not run. Opus
+
+Sonnet suggested I create different outdirs for each step of the --fastqc process
+
 *Answer*: Did either model claim something that you know is wrong?
+
+Although technically not wrong, the suggestion to place each step in a seperate outdir is wrong in the context of what question 6 is asking for.
 
 *Answer*: Did either model check its claims, for example by running commands?
 
+Opus checked its claims by running commands. Sonnet did not run commands to check.
+
 *Answer*: Did Opus's review change your mind about any of your answers to question 10?
 
+Yes, although it had many of the same suggestions as Sonnet, the suggestions were more detailed. This allowed me to make a more informed decision on the change and was more willing to do these changes.
+
 *Answer*: How did the costs compare? Which review would you trust more, and why?
+
+The opus costs 2 times more than sonnet. I would trust Opus more, as it ran a check to verify the information.
+
 Was the difference worth the difference in cost?
+
+It depends. I think if you are running large amounts of scripts and commands, it is not worth it as the costs are too high and the sonnet suggestions were very similar, just less detailed. However, if you are in need of a few quality datasets, this option is defintely worth it.
 
 ### 12: Run the script with a non-existent file
 
