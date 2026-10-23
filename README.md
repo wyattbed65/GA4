@@ -149,12 +149,20 @@ More poly-G trimming was done for R2. (Unfortunately I do not know why, but I am
 *Answer*: At least two differences between the reports,
 and whether things look better in terms of pass/warn/fail status:
 
+1.) One difference is the quality scores of the trimmed bases is a lot better than that of the raw data. Some of the bases in the raw data are found in the yellow, while all of the trimmed bases are found in the green.
+
+2.) The raw data contains N content per base, whereas the trimmed data does not contain any N content per base
+
+Although there are still warnings on sequence length distribution and fails on per base sequence contnt and per base N content, the trimmed data has more passes than the raw data. 
+
 *Answer*: Were the short reads with only `N`s removed?
 If so, was that due to the length threshold, or something else?
 
+As per the last question, the N's were removed in the trimmed data. It is likely due to the length threshold, as these short reads do not contain enough bases to meet the threshold. It could also be due to the quality parameter, as sequences that have repeated N would likely have a low quality score. It is likely due to both parameters.
+
 *Answer*: Something you didn't expect or are confused about:
 
-------------------------------------------------------------------------
+In the raw data adapter table, there is no reference of poly G. However, the trim report says that poly-G was trimmed. How could poly-G be trimmed if it doesn't show in the adapter table of the raw data.
 
 ## Part C: Bring in genAI
 
