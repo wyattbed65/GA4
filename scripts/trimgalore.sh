@@ -8,9 +8,9 @@ CONTAINER=oras://community.wave.seqera.io/library/trim-galore:2.3.0--a56e49e8329
 
 #Arguments
 
-R1="$1"
-R2="$2"
-Outdir="$3"
+r1: "$1"
+r2: "$2"
+outdir: "$3"
 
 #Make a directory
 
