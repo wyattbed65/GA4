@@ -128,8 +128,7 @@ In both cases, there were a lot more bases removed for quality trimming than for
 
 *Answer*: Percentage of read pairs that were removed: 
 
-R1: 2.4% of reads were removed
-R2: 8.7% of reads were removed
+7.4% of reads were removed
 
 ### 8: Poly-G trimming
 
