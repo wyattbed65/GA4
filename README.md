@@ -113,11 +113,23 @@ I originally failed the script, as I entered a spelling error on the input direc
 
 *Answer*: Which adapter sequence TrimGalore looked for, and how it decided on this:
 
+AGATCGGAAGAGC
+
+By looking in the json trim report, this adapter sequence comes from Illumina.
+
 *Answer*: Percentage of reads with adapters in R1 and R2:
+
+R1: 13%
+R2: 10.1%
 
 *Answer*: In R1 and R2, were more bases removed by quality trimming or by adapter trimming?
 
-*Answer*: Percentage of read pairs that were removed:
+In both cases, there were a lot more bases removed for quality trimming than for adapter trimming.
+
+*Answer*: Percentage of read pairs that were removed: 
+
+R1: 2.4% of reads were removed
+R2: 8.7% of reads were removed
 
 ### 8: Poly-G trimming
 
