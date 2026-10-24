@@ -8,9 +8,21 @@ CONTAINER=oras://community.wave.seqera.io/library/trim-galore:2.3.0--a56e49e8329
 
 #Arguments
 
-r1: "$1"
-r2: "$2"
-outdir: "$3"
+r1="$1"
+r2="$2"
+outdir="$3"
+
+#Check input files exist
+
+if [[ ! -f "$r1" ]]; then
+    echo "Error: input file not found: $r1" >&2
+    exit 1
+fi
+
+if [[ ! -f "$r2" ]]; then
+    echo "Error: input file not found: $r2" >&2
+    exit 1
+fi
 
 #Make a directory
 
