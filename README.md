@@ -447,7 +447,10 @@ Claude did follow my instructions
 
 *Answer*:
 
-------------------------------------------------------------------------
+I thought Claude was very useful at checking my work, especially with the fine details such as naming and making sure the file runs correctly. It is amazing how it can write a correct scripts almost instantly.
+I had challenges with Claude, especially the explanations of the code. It is very easy to use Claude to come up with a code, but if you do not have a good explanation for what this code does it is not reproducible for the future.
+Claude didn't tell me anything that is wrong that I know of with my current knowledge. However, Claude may not always be correct, so it is important to build a base knowledge before heavy use.
+The explanations were not always clear, and I found myself googling some of the Claude suggestions. This is not helpful, as I am trying to learn the code and I found that Claude was not doing as good of a job as I had hoped explaining the script writing steps. 
 
 ## Part D: Publish your repo on GitHub
 
