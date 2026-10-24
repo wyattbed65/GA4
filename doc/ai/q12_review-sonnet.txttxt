@@ -1,0 +1,35 @@
+
+❯ <ide_opened_file>The user opened the file
+  /fs/ess/PAS3493/people/wyattbed65/GA4/scripts/trimgalore.sh in the IDE. This
+  may or may not be related to the current task.</ide_opened_file>
+
+❯ Can you please add a check to ensure that the FastQC input files exist, and
+  exit with an informative error message if it doesn't
+
+  Read 1 file (ctrl+o to expand)
+  ⎿  Loaded GA4/CLAUDE.md
+
+● Update(GA4/scripts/trimgalore.sh)
+  ⎿  Added 10 lines
+      12  r2="$2"
+      13  outdir="$3"
+      14  
+      15 +#Check input files exist                                       
+      16  
+      17 +if [[ ! -f "$r1" ]]; then                                      
+      18 +    echo "Error: input file not found: $r1" >&2                
+      19 +    exit 1                                                     
+      20 +fi                                                             
+      21  
+      22 +if [[ ! -f "$r2" ]]; then                                      
+      23 +    echo "Error: input file not found: $r2" >&2                
+      24 +    exit 1                                                     
+      25 +fi                                                             
+      26 +                                                               
+      27  #Make a directory
+      28  
+      29  mkdir -p "$3"
+
+● Added file-existence checks for r1 and r2 in trimgalore.sh:11-23
+  (GA4/scripts/trimgalore.sh#L11-L23), exiting with an error message to stderr
+  if either is missing before the FastQC/Trim Galore run proceeds.

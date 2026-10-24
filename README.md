@@ -253,32 +253,43 @@ It depends. I think if you are running large amounts of scripts and commands, it
 ### 12: Run the script with a non-existent file
 
 ```bash
-# Your command:
+bash scripts/trimgalore.sh ../garrigos/fastq/S53_R1.fastq.gz ../garrigos/fastq
+/S53_R2.fastq.gz results/trimgalore
 ```
 
-The output of the command was:
+The output of the command was: Starting Trim Galore
+INFO:    Using cached SIF image
+INFO:    gocryptfs not found, will not be able to use gocryptfs
+Error: Input file not found: ../garrigos/fastq/S53_R1.fastq.gz
 
 ```
 ```
 
 *Answer*: What happens, and at which point does the script stop?
 
+It says the r1 command is not found, it stops at the first argument
+
 ### 13: Claude adds a check to your script
 
-*Answer*: Your prompt:
+*Answer*: Your prompt: Can you please add a check to ensure that the FastQC input files exist, and exit with an informative error message if it doesn't
 
 ```bash
-# Your command to test the updated script:
+bash scripts/trimgalore.sh ../garrigos/fastq/S53_R1.fastq.gz ../garrigos/fastq
+/S53_R2.fastq.gz results/trimgalore
 ```
 
-The output of the command was:
+The output of the command was: Error: input file not found: ../garrigos/fastq/S53_R1.fastq.gz
 
 ```
 ```
 
 *Answer*: Does it behave the way Claude claimed it would?
 
+Yes it does, it sends the message Error: input file not found when the R1 file does not exist.
+
 *Answer*: Given what you saw in question 12, how useful is this check?
+
+It practically does the same thing, so it would say it is not very useful.
 
 ### 14: Claude writes a loop
 
