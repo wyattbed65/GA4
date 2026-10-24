@@ -258,11 +258,10 @@ bash scripts/trimgalore.sh ../garrigos/fastq/S53_R1.fastq.gz ../garrigos/fastq
 ```
 
 The output of the command was: Starting Trim Galore
-INFO:    Using cached SIF image
-INFO:    gocryptfs not found, will not be able to use gocryptfs
-Error: Input file not found: ../garrigos/fastq/S53_R1.fastq.gz
+
 
 ```
+Starting Trim Galore INFO: Using cached SIF image INFO: gocryptfs not found, will not be able to use gocryptfs Error: Input file not found: ../garrigos/fastq/S53_R1.fastq.gz
 ```
 
 *Answer*: What happens, and at which point does the script stop?
