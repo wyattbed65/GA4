@@ -293,21 +293,35 @@ It practically does the same thing, so it would say it is not very useful.
 
 ### 14: Claude writes a loop
 
-*Answer*: Your prompt:
+*Answer*: Your prompt: Please write a for loop that runs scripts/trimgalore.sh for the 7 samples whose IDs start with S6, and the output directory should be results/trimgalore. The loop will be run from the G$ directory. Only show me the loop, don't add it to a file or run it
 
-The loop that Claude wrote:
+The loop that Claude wrote: 
+
+
 
 ```bash
-# Paste Claude's loop here
+for r1 in ../garrigos/fastq/S6*_R1.fastq.gz; do
+    sample=$(basename "$r1" _R1.fastq.gz)
+    r2="../garrigos/fastq/${sample}_R2.fastq.gz"
+    bash scripts/trimgalore.sh "$r1" "$r2" results/trimgalore
+done
 ```
 
 *Answer*: Does it run the script once per sample?
 
+It does run the script once per sample, as each loop simultaneously handles R1 and R2 FastQ files for each loop, thus meaning it goes by sample and combines each individual FastQ file in each sample into one loop.
+
 *Answer*: Does it get the correct R2 file for each R1 file?
+
+Yes it does get the correct R2 file for each sample, as the contents of the first argument get replaced with R2 in this line of the loop r2="../garrigos/fastq/${sample}_R2.fastq.gz"
 
 *Answer*: Does it only run for the 7 `S6` samples?
 
+Yes, the glob feature S6* ensures that it will only run for the 7 samples that start with S6 (S63-S69)
+
 *Answer*: Did you change the loop? If so, what did you change and why?
+
+I am not going to change the loop as it looks correct
 
 ### 15: Test and run the loop
 
