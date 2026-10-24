@@ -328,26 +328,72 @@ I am not going to change the loop as it looks correct
 The loop with `echo`, to test it:
 
 ```bash
-# Your loop:
+echo "for r1 in ../garrigos/fastq/S6*_R1.fastq.gz; do
+    sample=$(basename "$r1" _R1.fastq.gz)
+    r2="../garrigos/fastq/${sample}_R2.fastq.gz"
+    bash scripts/trimgalore.sh "$r1" "$r2" results/trimgalore
+done"
 ```
 
 The output of the loop was:
 
 ```
+for r1 in ../garrigos/fastq/S6*_R1.fastq.gz; do
+    sample=
+    r2=../garrigos/fastq/_R2.fastq.gz
+    bash scripts/trimgalore.sh   results/trimgalore
+done
 ```
 
 <!-- You don't need to paste the output of the loop that ran TrimGalore -->
 
 ```bash
-# Your command(s) to check the output files:
+ls results/trimgalore
 ```
 
-The output of the command(s) was:
+The output of the command(s) was: 
 
 ```
+S63_R1.fastq.gz_trimming_report.json  S66_R2.fastq.gz_trimming_report.json
+S63_R1.fastq.gz_trimming_report.txt   S66_R2.fastq.gz_trimming_report.txt
+S63_R1_val_1_fastqc.html              S66_R2_val_2_fastqc.html
+S63_R1_val_1_fastqc.zip               S66_R2_val_2_fastqc.zip
+S63_R1_val_1.fq.gz                    S66_R2_val_2.fq.gz
+S63_R2.fastq.gz_trimming_report.json  S67_R1.fastq.gz_trimming_report.json
+S63_R2.fastq.gz_trimming_report.txt   S67_R1.fastq.gz_trimming_report.txt
+S63_R2_val_2_fastqc.html              S67_R1_val_1_fastqc.html
+S63_R2_val_2_fastqc.zip               S67_R1_val_1_fastqc.zip
+S63_R2_val_2.fq.gz                    S67_R1_val_1.fq.gz
+S64_R1.fastq.gz_trimming_report.json  S67_R2.fastq.gz_trimming_report.json
+S64_R1.fastq.gz_trimming_report.txt   S67_R2.fastq.gz_trimming_report.txt
+S64_R1_val_1_fastqc.html              S67_R2_val_2_fastqc.html
+S64_R1_val_1_fastqc.zip               S67_R2_val_2_fastqc.zip
+S64_R1_val_1.fq.gz                    S67_R2_val_2.fq.gz
+S64_R2.fastq.gz_trimming_report.json  S68_R1.fastq.gz_trimming_report.json
+S64_R2.fastq.gz_trimming_report.txt   S68_R1.fastq.gz_trimming_report.txt
+S64_R2_val_2_fastqc.html              S68_R1_val_1_fastqc.html
+S64_R2_val_2_fastqc.zip               S68_R1_val_1_fastqc.zip
+S64_R2_val_2.fq.gz                    S68_R1_val_1.fq.gz
+S65_R1.fastq.gz_trimming_report.json  S68_R2.fastq.gz_trimming_report.json
+S65_R1.fastq.gz_trimming_report.txt   S68_R2.fastq.gz_trimming_report.txt
+S65_R1_val_1_fastqc.html              S68_R2_val_2_fastqc.html
+S65_R1_val_1_fastqc.zip               S68_R2_val_2_fastqc.zip
+S65_R1_val_1.fq.gz                    S68_R2_val_2.fq.gz
+S65_R2.fastq.gz_trimming_report.json  S69_R1.fastq.gz_trimming_report.json
+S65_R2.fastq.gz_trimming_report.txt   S69_R1.fastq.gz_trimming_report.txt
+S65_R2_val_2_fastqc.html              S69_R1_val_1_fastqc.html
+S65_R2_val_2_fastqc.zip               S69_R1_val_1_fastqc.zip
+S65_R2_val_2.fq.gz                    S69_R1_val_1.fq.gz
+S66_R1.fastq.gz_trimming_report.json  S69_R2.fastq.gz_trimming_report.json
+S66_R1.fastq.gz_trimming_report.txt   S69_R2.fastq.gz_trimming_report.txt
+S66_R1_val_1_fastqc.html              S69_R2_val_2_fastqc.html
+S66_R1_val_1_fastqc.zip               S69_R2_val_2_fastqc.zip
+S66_R1_val_1.fq.gz                    S69_R2_val_2.fq.gz
 ```
 
 *Answer*: Are all 7 samples represented?
+
+Yes all 7 samples are represented
 
 ### 16: A summary command
 
