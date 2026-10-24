@@ -397,22 +397,35 @@ Yes all 7 samples are represented
 
 ### 16: A summary command
 
-*Answer*: Your prompt:
+*Answer*: Your prompt: Please give me a simple command that prints the percentage of read pairs removed by Trim Galore for each sample, based on the output files in results/trimgalore. I am a beginner, so only use basic commands. Would you also provide an explanation for each command
 
 ```bash
-# The command you got from Claude:
+grep "pairs removed because" results/trimgalore/*_R2.fastq.gz_trimming_report.txt
 ```
 
 The output of the command was:
 
 ```
+results/trimgalore/S63_R2.fastq.gz_trimming_report.txt:Number of sequence pairs removed because at least one read was shorter than the length cutoff (7.40%):
+results/trimgalore/S64_R2.fastq.gz_trimming_report.txt:Number of sequence pairs removed because at least one read was shorter than the length cutoff (3.35%):
+results/trimgalore/S65_R2.fastq.gz_trimming_report.txt:Number of sequence pairs removed because at least one read was shorter than the length cutoff (1.94%):
+results/trimgalore/S66_R2.fastq.gz_trimming_report.txt:Number of sequence pairs removed because at least one read was shorter than the length cutoff (3.71%):
+results/trimgalore/S67_R2.fastq.gz_trimming_report.txt:Number of sequence pairs removed because at least one read was shorter than the length cutoff (1.78%):
+results/trimgalore/S68_R2.fastq.gz_trimming_report.txt:Number of sequence pairs removed because at least one read was shorter than the length cutoff (2.56%):
+results/trimgalore/S69_R2.fastq.gz_trimming_report.txt:Number of sequence pairs removed because at least one read was shorter than the length cutoff (4.81%):
 ```
 
 *Answer*: Did the output look right? If not, what did you do?
 
+Yes, the output looks correct
+
 *Answer*: Does the value for `S63` match your answer to question 7?
 
+The value in this question is the same as the vlaue found in question 7 (7.4% of read pairs were removed)
+
 *Answer*: In your own words, how does the command work?
+
+grep "pairs removed because" searches the files for this wording, as this is the sentence that states the percentage of read pair removed in each file. The grep prints the sentence for each file, containing the percentage. The command results/trimgalore/*_R2.fastq.gz_trimming_report.txt makes sure that the grep is only looking at the trimming reports, as the information needed is only available in the trimming reports of the files. 
 
 ### 17: Document your genAI use
 
