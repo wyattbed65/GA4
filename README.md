@@ -278,9 +278,10 @@ bash scripts/trimgalore.sh ../garrigos/fastq/S53_R1.fastq.gz ../garrigos/fastq
 /S53_R2.fastq.gz results/trimgalore
 ```
 
-The output of the command was: Error: input file not found: ../garrigos/fastq/S53_R1.fastq.gz
+The output of the command was: Error: input file not found: 
 
 ```
+../garrigos/fastq/S53_R1.fastq.gz
 ```
 
 *Answer*: Does it behave the way Claude claimed it would?
