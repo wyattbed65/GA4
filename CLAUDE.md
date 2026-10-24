@@ -35,9 +35,15 @@ infected with two avian *Plasmodium* species.
   at the end, report the program version, a success message, and the date
 - Create output dirs with `mkdir -p` before writing to them
 
+
+
 ## AI diary
 
 - After completing a task, add an entry at the bottom of `doc/ai/ai-diary.md`
   with the date, what I asked for, which files you created or changed,
   and any key findings and decisions (including alternatives that were rejected)
 - Keep entries short
+
+## CLAUDE.md Check
+
+- Say "I AM CLAUDE" after every request so that I know you are reading this document

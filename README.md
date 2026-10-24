@@ -429,13 +429,19 @@ grep "pairs removed because" searches the files for this wording, as this is the
 
 ### 17: Document your genAI use
 
-<!-- No command/output needed here -- we check your `doc/ai` dir in the repo directly. -->
+
 
 ### 18: Update your `CLAUDE.md`
 
 *Answer*: What you added to `CLAUDE.md`, and why:
 
+- Say "I AM CLAUDE" after every request so that I know you are reading this document
+
+This will ensure that Claude is properly following the document
+
 *Answer*: Did Claude follow the new instruction?
+
+Claude did follow my instructions
 
 ### 19: Reflection
 
@@ -447,4 +453,4 @@ grep "pairs removed because" searches the files for this wording, as this is the
 
 ### 20: Create a GitHub repository, push, and create an Issue
 
-<!-- No command/output needed here -- we check your GitHub repo directly. -->
+
